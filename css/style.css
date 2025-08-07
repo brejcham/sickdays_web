@@ -1,0 +1,1071 @@
+html {
+  scroll-behavior: smooth;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+::-moz-selection {
+  background-color: #445a73;
+  color: white;
+}
+
+::selection {
+  background-color: #445a73;
+  color: white;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-display: swap;
+  font-size: 1rem;
+  color: #FEFEFE;
+  font-size: 16px;
+  background-color: #1A1B1D;
+}
+
+.shareBtn {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  display: flex;
+}
+
+.elementBtn {
+  padding: 0 5px;
+  cursor: pointer;
+  transition: all ease-in-out 250ms;
+}
+.elementBtn img {
+  position: relative;
+  width: 25px;
+}
+
+.menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  background-color: #445a73;
+  border: solid 2px #445a73;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+}
+.menu .line {
+  position: absolute;
+  left: 25%;
+  height: 1px;
+  transform-origin: left;
+  background-color: #1A1B1D;
+}
+.menu .line1 {
+  top: 35%;
+  width: 50%;
+  transition: all ease-in-out 250ms;
+  transform: translateY(-50%) scaleX(0.5);
+}
+.menu .line2 {
+  top: 50%;
+  width: 50%;
+  transition: all ease-in-out 250ms;
+  transform: translateY(-50%) scaleX(1);
+}
+.menu .line3 {
+  top: 65%;
+  width: 50%;
+  transition: all ease-in-out 250ms;
+  transform: translateY(-50%) scaleX(0.75);
+}
+.menu:hover .line1 {
+  transform: scaleX(1);
+}
+.menu:hover .line3 {
+  transform: scaleX(1);
+}
+
+.ss-menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  background-color: #1A1B1D;
+  border: solid 2px #445a73;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all ease-in-out 100ms;
+  opacity: 0;
+  z-index: -1;
+}
+.ss-menu img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 100ms;
+}
+.ss-menu:hover img {
+  transform: translate(-50%, -50%) scale(1.2);
+  transition: all ease-in-out 100ms;
+}
+.ss-menu:hover {
+  background-color: #445a73;
+  transition: all ease-in-out 100ms;
+}
+
+.menu.active .line1 {
+  top: 50%;
+  width: 50%;
+  transform: scaleX(1);
+  transition: all ease-in-out 250ms;
+  transition-delay: 25ms;
+}
+
+.menu.active .line2 {
+  width: 50%;
+  transform: scaleX(1);
+  opacity: 0;
+  transition: all ease-in-out 250ms;
+}
+
+.menu.active .line3 {
+  top: 50%;
+  width: 50%;
+  transform: scaleX(1);
+  transition: all ease-in-out 250ms;
+  transition-delay: 25ms;
+}
+
+.visible1 {
+  opacity: 1;
+  transform: translateY(75px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 25ms;
+  z-index: 1;
+}
+
+.visible2 {
+  opacity: 1;
+  transform: translateY(150px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 50ms;
+  z-index: 1;
+}
+
+.visible3 {
+  opacity: 1;
+  transform: translateY(225px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 100ms;
+  z-index: 1;
+}
+
+.visible4 {
+  opacity: 1;
+  transform: translateY(300px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 125ms;
+  z-index: 1;
+}
+
+.visible5 {
+  opacity: 1;
+  transform: translateY(375px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 150ms;
+  z-index: 1;
+}
+
+.visible6 {
+  opacity: 1;
+  transform: translateY(450px);
+  transition: all ease-in-out 250ms;
+  transition-delay: 175ms;
+  z-index: 1;
+}
+
+section {
+  min-height: 80vh;
+  padding: 50px 15% 50px 15%;
+  background-color: #1A1B1D;
+}
+
+.separator {
+  width: 20vw;
+  height: 2px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #445a73;
+}
+
+.mainView {
+  position: relative;
+  min-height: 100vh;
+  max-height: 100vh;
+  color: #9fa0ac;
+  /*background: url("../img/bcc-free-template-rock-hard.jpg");*/
+  background: url("../img/sickdays_logo2.png");
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+}
+
+h1 {
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20%;
+  font-size: 7vh;
+  font-weight: 900;
+  color: #FEFEFE;
+  text-shadow: 0 2px 10px #1A1B1D;
+  /*text-transform: uppercase;*/
+  opacity: 0;
+  -webkit-animation: opacity 2s cubic-bezier(0.17, 0.67, 0.14, 0.97) both;
+  animation: opacity 2s cubic-bezier(0.17, 0.67, 0.14, 0.97) both;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+h2 {
+  font-size: 2rem;
+}
+
+h2#slogan {
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%;
+  font-size: 5vh;
+  font-weight: 600;
+  color: #445a73;
+  text-shadow: 0 2px 10px #1A1B1D;
+  opacity: 0;
+  transform: translateY(-45px);
+  -webkit-animation: slideY 2s cubic-bezier(0.17, 0.67, 0.14, 0.97) both;
+  animation: slideY 2s cubic-bezier(0.17, 0.67, 0.14, 0.97) both;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@-webkit-keyframes slideY {
+  from {
+    opacity: 0;
+    transform: translateY(-45px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+@keyframes slideY {
+  from {
+    opacity: 0;
+    transform: translateY(-45px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+p {
+  color: #9fa0ac;
+  line-height: 30px;
+  margin: 50px 0 50px 0;
+}
+
+p.miniPara {
+  color: #FEFEFE;
+  line-height: 30px;
+  margin: 0;
+}
+
+.hardLight {
+  font-size: 3vh;
+  line-height: 40px;
+  font-weight: 900;
+  text-align: center;
+  width: 70%;
+  margin: 70px auto 70px auto;
+  color: #9fa0ac;
+}
+
+.highLightWhite {
+  font-weight: bold;
+  color: white;
+}
+
+/*.animatableY .highLightWhite {
+    color: #fff;
+    font-weight: bold;
+}*/
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link img {
+  width: 20px;
+  height: 20px;
+}
+
+.social-link a {
+  text-decoration: none;
+  color: gray;
+}
+
+.imgContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+}
+.imgContent .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*cursor: pointer;*/
+}
+.imgContent .card p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.imgContent .card p:first-of-type {
+  font-size: 1.3rem;
+  color: #FEFEFE;
+}
+.imgContent .card::before {
+  /*content: url("../img/instagram-min-white.svg");*/
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  top: 0;
+  left: 0;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  opacity: 0;
+  background-color: rgba(68, 90, 115, 0.7);
+  z-index: 2;
+  transition: all ease-in-out 150ms;
+}
+.imgContent .card:hover::before {
+  opacity: 1;
+  transition: all ease-in-out 150ms;
+}
+.imgContent img {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  margin: 15px auto;
+  border-radius: 15px;
+}
+
+/* Merch Container */
+.merch-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Individual Merch Card (Updated) */
+.merch-card {
+    display: flex;
+    flex-grow: 1; /* Allows the item to grow to fill extra space */
+    flex-shrink: 1; /* Allows the item to shrink on smaller screens */
+    flex-basis: 450px; /* Sets a preferred width for the card */
+
+    /* These properties remain the same */
+    border-radius: 10px;
+    border: 1px solid #445a73;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #1A1B1D;
+    overflow: hidden;
+    max-height: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.merch-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image section (50% of the card) */
+.merch-images {
+    flex: 1; /* Takes up 50% of the available space */
+    position: relative;
+}
+
+.merch-images img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain; /* Ensures the image fills the space without distortion */
+}
+
+/* Specific styling for the single-image case */
+.merch-images img:only-child {
+    flex: none; /* New: Prevents it from being a flex item */
+    width: 100%; /* New: Forces the single image to take up full width */
+}
+
+/* Text details section (1/3 of the card) (Updated) */
+.merch-details {
+    flex: 1; /* Takes up 1 part of the available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #1A1B1D; /* New: Background color */
+}
+
+.merch-details h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.merch-details .price {
+    font-weight: bold;
+    color: #445a73; /* You might want to change this color to be more visible on the new background */
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.merch-details p {
+    font-size: 1rem;
+    color: #666; /* You might want to change this color for better contrast */
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Navigation Buttons (New CSS) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centers the buttons vertically */
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection on double-click */
+    transition: color 0.3s ease;
+    padding: 0 15px; /* Adds clickable area */
+}
+
+.nav-btn:hover {
+    color: #bbb;
+}
+
+/* Position the buttons */
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Modal (hidden by default) */
+.modal {
+    position: fixed;
+    z-index: 100; /* Ensure it's on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with transparency */
+    display: none; /* This is what initially hides the modal */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Makes the entire modal feel clickable to close */
+}
+
+/* Modal Content (the container for the image) */
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    background-color: #333;
+    padding: 20px 60px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+/* The enlarged image inside the modal */
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh; /* Viewport height for responsiveness */
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* Close button */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #bbb;
+}
+
+
+/* Container for the entire gallery */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px; /* Creates space between the gallery items */
+    justify-content: center; /* Centers the items if they don't fill the entire row */
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px; /* Optional: Sets a max width for the gallery */
+}
+
+/* Individual gallery items */
+.gallery-item {
+    /* The key to responsiveness with Flexbox */
+    /* flex-grow: 1; -> Allows items to grow to fill space */
+    /* flex-shrink: 1; -> Allows items to shrink on smaller screens */
+    /* flex-basis: 250px; -> A preferred starting width for each item */
+    flex: 1 1 250px; 
+    border-radius: 3px;
+    overflow: hidden; /* Ensures the image and border-radius work together */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Simple hover animation */
+}
+
+.gallery-item:hover {
+    transform: scale(1.01);
+}
+
+/* Images inside the gallery items */
+.gallery-item img {
+    /* The key to responsive images */
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    cursor: pointer;
+}
+
+p.miniTitle {
+  font-size: 4vh;
+  line-height: 40px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+p.pink {
+  color: #445a73;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0, 0.69, 0.46, 0.95);
+}
+p.pink:hover {
+  transform: translateX(5px);
+  transition: all 250ms cubic-bezier(0, 0.69, 0.46, 0.95);
+}
+
+#bandVideo {
+  width: 640px;
+  background-color: #1E0E18;
+  cursor: pointer;
+}
+
+.date table {
+  /*margin: 70px 0;*/
+  margin: 0 0;
+  width: 100%;
+  border-spacing: 0;
+}
+.date table td {
+  border-bottom: solid 1px #9fa0ac;
+  color: #9fa0ac;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.date table td a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.date table td a:hover {
+  transform: translateX(5px);
+  transition: all 250ms cubic-bezier(0, 0.69, 0.46, 0.95);
+}
+.date table td:first-of-type {
+  color: white;
+}
+.date table td:nth-of-type(even) {
+  padding-left: 7px;
+}
+.date table span {
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ss-nextShow, .ss-music {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+footer {
+  background-color: #445a73;
+  min-height: 15vh;
+}
+
+.contact p {
+  text-align: center;
+}
+
+section.blocNewsletter {
+  min-height: inherit;
+  text-align: center;
+  padding: 150px 15%;
+  background: url("../img/background-newsletter.jpg");
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+form.newsletterForm input {
+  color: #1A1B1D;
+  padding: 15px;
+  border: none;
+  margin: 0;
+  outline: none;
+}
+form.newsletterForm input[type=email] {
+  color: #1A1B1D;
+  border: solid #1A1B1D 3px;
+  width: 50%;
+  border-radius: 999px 0 0 999px;
+}
+form.newsletterForm label[for=checkRobotNews] {
+  color: #9fa0ac;
+}
+form.newsletterForm #hideNews {
+  display: none;
+  margin: 10px 0;
+}
+form.newsletterForm #hideNews input {
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background-color: #FEFEFE;
+}
+form.newsletterForm input[type=submit] {
+  text-transform: uppercase;
+  border: solid #1A1B1D 3px;
+  background-color: white;
+  border-radius: 999px;
+  margin-left: -25px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0, 0.69, 0.46, 0.95);
+}
+form.newsletterForm input[type=submit]:hover {
+  transition: all 250ms cubic-bezier(0, 0.69, 0.46, 0.95);
+  color: #445a73;
+  transform: translateX(5px);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contactForm input, .contactForm textarea {
+  color: #1A1B1D;
+  padding: 15px;
+  width: 70%;
+  border: none;
+  margin: 15px 0 15px 0;
+  font-family: inherit;
+  outline: none;
+}
+.contactForm input {
+  border-radius: 999px;
+}
+.contactForm label, .contactForm p.labelP {
+  color: white;
+  font-size: 3vh;
+  font-weight: 900;
+}
+.contactForm p.labelP {
+  margin: 20px auto;
+}
+.contactForm textarea {
+  border-radius: 5px;
+}
+.contactForm input[type=submit] {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 2vh;
+  cursor: pointer;
+  transition: all ease-in-out 250ms;
+  background-color: white;
+}
+.contactForm input[type=submit]:hover {
+  transform: scaleX(0.8);
+  letter-spacing: 0.8rem;
+  transition: all ease-in-out 250ms;
+  color: white;
+  background-color: #445a73;
+}
+.contactForm .inscriptionCheck {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.contactForm .inscriptionCheck input[type=radio] {
+  margin: 0 10px;
+  width: 10px;
+}
+.contactForm .inscriptionCheck label {
+  font-size: 2vh;
+  font-weight: inherit;
+}
+.contactForm #helpNom, .contactForm #helpTel, .contactForm #helpMail, .contactForm #helpRobot {
+  display: none;
+}
+
+.hidePara {
+  margin: 0;
+  color: #445a73;
+}
+
+::-webkit-input-placeholder {
+  color: #1A1B1D;
+}
+
+::-moz-placeholder {
+  color: #1A1B1D;
+}
+
+:-ms-input-placeholder {
+  color: #1A1B1D;
+}
+
+::-ms-input-placeholder {
+  color: #1A1B1D;
+}
+
+::placeholder {
+  color: #1A1B1D;
+}
+
+footer {
+  text-align: center;
+  padding: 50px 0 50px 0;
+}
+footer p {
+  margin: 10px 0 10px 0;
+  color: white;
+}
+footer p.bolder {
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+footer .socialBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer img {
+  max-width: 24px;
+  margin: 0 2px 0 2px;
+  cursor: pointer;
+}
+
+.footerBaner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerBaner .bandBanner {
+  margin: 0 30px;
+  width: 100%;
+  max-width: 75px;
+  cursor: default;
+}
+
+#upArrow {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+#upArrow:hover {
+  -webkit-animation: animeLogo ease-in-out 0.3s;
+  animation: animeLogo ease-in-out 0.3s;
+}
+
+@-webkit-keyframes animeLogo {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes animeLogo {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+button[name=backSite] {
+  border: none;
+  border-radius: 5px;
+  max-width: 250px;
+  margin: 25px;
+  padding: 10px;
+  background-color: #445a73;
+  font-size: 2.5vh;
+  font-weight: bolder;
+  color: white;
+  cursor: pointer;
+}
+
+.animatableY {
+  opacity: 0;
+  transform: translate3d(0, 3vh, 0);
+  transition: all ease-in-out 1s;
+}
+
+.animatableX {
+  opacity: 0;
+  transform: translate3d(-3vw, 0, 0);
+  transition: all ease-in-out 1s;
+}
+
+.animatableOpacity {
+  opacity: 0;
+  transition: all ease-in-out 1s;
+}
+
+.showed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: all ease-in-out 1s;
+}
+
+@media screen and (max-width: 1024px) {
+  .menu:hover .line1 {
+    transform: scaleX(0.5);
+  }
+
+  .menu:hover .line3 {
+    transform: scaleX(0.75);
+  }
+
+  .menu.active .line3 {
+    transform: scaleX(1);
+  }
+}
+@media screen and (max-width: 767px) {
+  h1 {
+    width: 90%;
+    font-size: 4vh;
+    bottom: 35%;
+  }
+
+  h2#slogan {
+    width: 90%;
+    font-size: 4vh;
+    bottom: 20%;
+  }
+
+  .shareBtn {
+    display: none;
+  }
+
+  footer .socialBanner {
+    display: none;
+  }
+
+  section {
+    padding: 50px 2% 50px 2%;
+  }
+
+  section.blocNewsletter {
+    padding: 50px 2% 50px 2%;
+    background-size: 160%;
+    background-repeat: no-repeat;
+    background-position: 100% 20%;
+  }
+
+  form.newsletterForm input[type=email] {
+    width: 60%;
+  }
+
+  .hardLight {
+    width: 100%;
+  }
+
+  #bandVideo {
+    max-width: 100%;
+  }
+
+  .contactForm input, .contactForm textarea {
+    width: 90%;
+  }
+
+  .imgContent .card::before {
+    display: none;
+  }
+
+  p.pink:hover {
+    transform: none;
+  }
+
+  .date table td a:hover {
+    transform: none;
+  }
+
+  form.newsletterForm input[type=submit]:hover {
+    transform: none;
+  }
+
+  .contactForm input[type=submit]:hover {
+    transform: none;
+    letter-spacing: 0.2rem;
+    color: #1A1B1D;
+    background-color: white;
+  }
+
+  #upArrow {
+    width: 48px;
+  }
+  #upArrow:hover {
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  .date table td:nth-of-type(even) {
+    padding-left: 1px;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  form.newsletterForm input[type=email] {
+    width: 60%;
+  }
+
+  .contactForm input, .contactForm textarea {
+    width: 90%;
+  }
+}
+@media all and (max-width: 320px) {
+  table {
+    font-size: 0.8rem;
+  }
+  table td:last-of-type {
+    display: none;
+  }
+
+  .hardLight {
+    font-size: 2vh;
+  }
+
+  form.newsletterForm input[type=email] {
+    width: 50%;
+  }
+
+  .footerBaner p.bolder {
+    font-size: 0.8rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

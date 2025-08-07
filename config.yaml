@@ -1,0 +1,60 @@
+
+creation_date: "3.8.2025"
+
+band_members:
+  - name: "Martin Gloss"
+    description: "Frontman - Kytara, zpěv"
+    image_src: "./img/martin_guitar.jpg"
+
+  - name: "Jiří Jeržák Nývlt"
+    description: "Bicí a zpěv"
+    image_src: "./img/jerzak_drums.jpg"
+
+  - name: "Martin Brejcha"
+    description: "Basa"
+    image_src: "./img/martin_bass.jpg"
+
+  - name: "Vítězslav Kovář"
+    description: "Saxofon"
+    image_src: "./img/vita_saxofon.png"
+
+merch:
+  - name: "Tričko pánské"
+    price: "500 kč"
+    description: "Bavlněné pánské tričko s potiskem na přední i zadní straně"
+    images:
+      - path: "./img/merch/tricko_panske1.jpg"
+      - path: "./img/merch/tricko_panske2.jpg"
+
+  - name: "Tílko dámské"
+    price: "500 kč"
+    description: "Bavlněné dámské tílko s potiskem na přední i zadní straně"
+    images:
+      - path: "./img/merch/tilko_damske1.jpg"
+      - path: "./img/merch/tilko_damske2.jpg"
+
+
+shows:
+  - date: "31/01/2025"
+    event: "Punk letí do nebe"
+    location: "Tišnov"
+    time: "20h"
+    link: "#"
+
+  - date: "08/02/2025"
+    event: "Oslavy 100 let od 1. MS světa v Lyžování"
+    location: "Janské Lázně"
+    time: "17h"
+    link: "#"
+
+  - date: "30/04/2025"
+    event: "Čarodějná rokle"
+    location: "Brno"
+    time: "17h"
+    link: "#" # Another example
+
+  - date: "02/05/2025"
+    event: "Májový Rusty Nail"
+    location: "Brno"
+    time: "19h"
+    link: "#" # Another example
