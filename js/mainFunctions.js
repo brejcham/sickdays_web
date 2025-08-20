@@ -81,8 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // These will hold the images for the currently active set (gallery or merch)
   let currentImageSet = [];
+  let currentImageAlts = [];
   let currentIndex = 0; // Variable to store the index of the current image
   const galleryItems = []
+  const galleryItemsAlts = []
 
   function setupGallery() {
      const galleryItemsDiv = document.querySelectorAll('.gallery-item');
@@ -91,11 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
       galleryItemsDiv.forEach((itemDiv, index) => {
           const item = itemDiv.querySelector('img');
           galleryItems.push(item.src)
+          galleryItemsAlts.push(item.alt)
           itemDiv.addEventListener('click', (event) => {
               event.preventDefault();
 
               // Populate the global image set for the gallery
               currentImageSet = galleryItems;
+              currentImageAlts = galleryItemsAlts;
               currentIndex = index;
               openModal(item.src, item.alt);
           });
@@ -241,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
               console.log("merch click ", currentImageSet)
 
               const caption = card.dataset.caption;
+              currentImageAlts = new Array(currentImageSet.length).fill(caption)
               openModal(currentImageSet[currentIndex], caption);
           });
       })
@@ -287,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
         if (currentImageSet.length > 0) {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentImageSet.length - 1;
-            openModal(currentImageSet[currentIndex], modalCaption.textContent);
+            openModal(currentImageSet[currentIndex], currentImageAlts[currentIndex]);
         }
     });
 
@@ -295,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
         if (currentImageSet.length > 0) {
             currentIndex = (currentIndex < currentImageSet.length - 1) ? currentIndex + 1 : 0;
-            openModal(currentImageSet[currentIndex], modalCaption.textContent);
+            openModal(currentImageSet[currentIndex], currentImageAlts[currentIndex]);
         }
     });
 
