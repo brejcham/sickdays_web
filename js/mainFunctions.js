@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // Path to your YAML file
-  const yamlFilePath = 'config.yaml'; // Make sure this path is correct
+  // Path to configuration YAML file
+  const yamlFilePath = 'config.yaml';
 
   fetch(yamlFilePath)
       .then(response => {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
           membersData = configDataRoot.band_members
           membersData.forEach(member => {
                     const cardDiv = document.createElement('div');
-                    cardDiv.classList.add('card', 'animatableY'); // Add your CSS classes
+                    cardDiv.classList.add('card', 'animatableY');
 
                     // Image (lazyload and noscript)
                     const imgLazyload = document.createElement('img');
@@ -254,8 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
           showsTableBody.innerHTML = '<tr><td colspan="3">Failed to load show data.</td></tr>';
       });
 
-        // --- MODAL FUNCTIONS (now unified) ---
-
+    // --- MODAL FUNCTIONS ---
     function openModal(imagePath, captionText) {
        console.log("OpenModal ", imagePath, captionText)
         modalImage.src = imagePath;
@@ -280,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- MODAL LISTENERS ---
-
     document.querySelector('.modal-close-btn').addEventListener('click', closeModal);
     modal.addEventListener('click', (event) => {
         if (event.target === modal) {
@@ -310,170 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- INITIALIZE ALL COMPONENTS ---
     setupGallery();
-
-})
-
-// Manage vidéo
-$(function () {
-    $('video').on('click', function(event) {
-      event.preventDefault();
-      document.getElementById('tucoVideo').play();
-    });
-})
-
-// Manage form
-$(function () {
-    // Name
-      $('#nom').on('blur input', function () {
-        if ($('#nom').val().length >= 50) {
-          $('#helpNom').text('50 characters max').hide().show();
-        } else {
-          $('#helpNom').slideUp(400);
-        }
-      })
-      // Phone
-        $('#telephone').on('blur input', function () {
-            let regexTelephone = /[0]{1}[1-7]{1}[0-9]{8}/;
-            let telEntry = String(document.getElementById('telephone').value);
-            for (var i = 0; i < telEntry.length; i++) {
-              telEntry = telEntry.replace(" ", "");
-            }
-            if (!telEntry.match(regexTelephone)) {
-                $('#helpTel').text('Incorrect phone number').hide().show();
-            } else {
-                $('#helpTel').slideUp(400);
-            }
-        })
-
-    // Email
-        $('#mail').on('blur input', function () {
-          let regexMail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-          let mailEntry = $('input#mail').val();
-          if (!mailEntry.match(regexMail)) {
-            $('#helpMail').text('Incorrect email address').hide().show();
-          } else {
-            $('#helpMail').slideUp(400);
-          }
-        })
-    // Check Robot
-        $('#checkRobot').on('blur input', function () {
-            if ($('#checkRobot').val() != 7) {
-              $('#helpRobot').text('Incorrect result of the operation').hide().show();
-            } else {
-              $('#helpRobot').slideUp(400);
-            }
-        })
-    // Message
-        $('#message').on('blur input', function () {
-          if ($('#message').val().length >= 3000) {
-              $('#helpMessage').text('Your message must not exceed 3000 characters').hide().slideDown(400);
-          } else {
-            $('#helpMessage').slideUp(400);
-          }
-        })
-  })
-
-// Contact form
-$(function () {
-      $('.contactForm').on('submit', function (e) {
-          e.preventDefault();
-          let nom = $('#nom').val();
-          let telephone = $('#telephone').val();
-          let mail = $('#mail').val();
-          let message = $('#message').val();
-          let newsletter = $('input[name="newsletter"]:checked').val();
-          let checkRobot = $('#checkRobot').val();
-          if ($('#checkRobot').val() == 7) {
-              $.post('../datas/sendFormContact.php',
-                      {nom: nom,
-                        telephone: telephone,
-                        mail: mail,
-                        message: message,
-                        newsletter: newsletter,
-                        checkRobot: checkRobot },
-                        function(data, textStatus, xhr) {
-                            $('form').fadeOut(400, function() {
-                                $('#retourFormulaire').css({"padding": "10px",
-                                                            "margin-top": "160px",
-                                                            "margin-bottom": "160px",
-                                                            "margin-left": "auto",
-                                                            "margin-right": "auto",
-                                                            "color": "white",
-                                                            "font-size": "1rem",
-                                                            "text-align": "center"});
-                                $('#retourFormulaire').html(data);
-                            });
-                            $('#nom').val('');
-                            $('#telephone').val('');
-                            $('#mail').val('');
-                            $('#message').val('');
-                            $('#checkRobot').val('');
-                          });
-            } else {
-                alert('Incorrect anti robot check result !');
-            }
-
-      })
-})
-
-// Form newsletter input blur
-$(function () {
-  let regexMail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-    $('#emailNews').on('blur input', function(event) {
-        //event.preventDefault();
-        let mailEntry = $('#emailNews').val();
-        if (!mailEntry.match(regexMail)) {
-          $('#helpMailNews').text('Incorrect email address').hide().show();
-          $('#hideNews').hide();
-        } else {
-          $('#helpMailNews').slideUp(100, function () {
-            // Apparition checkRobotNews
-            $('#hideNews').fadeIn();
-          });
-        }
-    });
-    $('#checkRobotNews').on('blur input', function(event) {
-        if ($('#checkRobotNews').val() != 7) {
-          $('#helpMailNews').text('Incorrect result').hide().show();
-        } else {
-          $('#helpMailNews').slideUp(100, function () {
-          });
-        }
-    });
-})
-
-// Form newsletter ajax send
-$(function () {
-      $('.newsletterForm').on('submit', function (e) {
-          e.preventDefault();
-          let mail = $('#emailNews').val();
-          let checkRobot = $('#checkRobotNews').val();
-          if ($('#checkRobotNews').val() == 7 ) {
-              $.post('../datas/sendFormSubscription.php',
-                      { mail: mail,
-                        checkRobot: checkRobot },
-                        function(data, textStatus, xhr) {
-                            $('.newsletterForm').fadeOut(400, function() {
-                                $('#retourNewsFormulaire').css({"padding": "10px",
-                                                            "margin-top": "60px",
-                                                            "margin-bottom": "60px",
-                                                            "margin-left": "auto",
-                                                            "margin-right": "auto",
-                                                            "color": "white",
-                                                            "font-size": "1rem",
-                                                            "text-align": "center"});
-                                $('#retourNewsFormulaire').html(data);
-                            });
-                            $('#emailNews').val('');
-                            $('#checkRobotNews').val('');
-                          });
-            } else {
-                alert('Incorrect anti robot check result !');
-            }
-
-      })
 })
 
 // Animations on scroll
@@ -564,9 +399,9 @@ $(function () {
 })
 
 // Locations
-$(function () {
+//$(function () {
     //$(".card").on('click', () => {window.location.href = "https://www.instagram.com/"});
-})
+//})
 // Location socials
 $(function () {
     $('.facebook').on('click', function(event) {

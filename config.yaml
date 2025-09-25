@@ -1,5 +1,5 @@
 
-creation_date: "3.8.2025"
+creation_date: "25.9.2025"
 
 band_members:
   - name: "Martin Gloss"
@@ -20,18 +20,20 @@ band_members:
 
 merch:
   - name: "Tričko pánské"
-    price: "500 kč"
+    price: "490 kč"
     description: "Bavlněné pánské tričko s potiskem na přední i zadní straně"
     images:
-      - path: "./img/merch/tricko_panske1.jpg"
-      - path: "./img/merch/tricko_panske2.jpg"
+      - path: "./img/merch/tricko_panske3.png"
+      - path: "./img/merch/tricko_panske4.png"
+#      - path: "./img/merch/tricko_panske1.png"
+#      - path: "./img/merch/tricko_panske2.png"
 
   - name: "Tílko dámské"
-    price: "500 kč"
+    price: "490 kč"
     description: "Bavlněné dámské tílko s potiskem na přední i zadní straně"
     images:
-      - path: "./img/merch/tilko_damske1.jpg"
-      - path: "./img/merch/tilko_damske2.jpg"
+      - path: "./img/merch/tilko_damske1.png"
+      - path: "./img/merch/tilko_damske2.png"
 
 
 shows:
@@ -58,3 +60,9 @@ shows:
     location: "Brno"
     time: "19h"
     link: "#" # Another example
+
+  - date: "10/10/2025"
+    event: "Rock Night v Rusty Nailu"
+    location: "Brno"
+    time: "20h"
+    link: "https://fb.me/e/307mD5Jsm"
