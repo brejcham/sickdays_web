@@ -19,16 +19,16 @@ band_members:
     image_src: "./img/vita_saxofon.png"
 
 merch:
-  - name: "Tričko pánské"
+  - name: "Tričko \"Zejtra nejdu!\""
     price: "490 kč"
-    description: "Bavlněné pánské tričko s potiskem na přední i zadní straně"
+    description: "Bavlněné tričko s potiskem na přední i zadní straně"
     images:
       - path: "./img/merch/tricko_panske3.png"
       - path: "./img/merch/tricko_panske4.png"
 #      - path: "./img/merch/tricko_panske1.png"
 #      - path: "./img/merch/tricko_panske2.png"
 
-  - name: "Tílko dámské"
+  - name: "Tílko \"Zejtra nejdu!\" dámské"
     price: "490 kč"
     description: "Bavlněné dámské tílko s potiskem na přední i zadní straně"
     images:
